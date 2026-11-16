@@ -157,7 +157,7 @@ const imageContentType = (imagePath: string) => {
 };
 
 type ImportProgress = { completed: number; total: number; current: string };
-const IMPORT_CONCURRENCY = 2;
+const IMPORT_CONCURRENCY = 8;
 const fetchWithRetry: typeof fetch = async (input, init) => {
   let lastError: unknown;
   for (let attempt = 0; attempt < 3; attempt += 1) {
